@@ -1,9 +1,9 @@
-import { Router } from "express";
+const { createTodo, getTodos } = require("../controller/todo.controller");
+const express = require("express");
 
-const router = Router();
+const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "Sample TODOS from routes" });
-});
+router.get("/", getTodos);
+router.post("/", createTodo);
 
-export default router;
+module.exports = router;

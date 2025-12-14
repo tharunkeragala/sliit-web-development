@@ -1,12 +1,11 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
 
-app.get('/api/todos', (req, res) => {
-  res.status(200).json({message: "Sample TODOS"});
-});
+app.use(express.json());
 
-// app.get("/api/todos", require("./routes/todo.routes").default);
+app.use("/api/todos", require("./routes/todo.routes"));
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
