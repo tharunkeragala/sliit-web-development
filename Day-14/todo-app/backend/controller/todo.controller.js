@@ -1,9 +1,19 @@
 const TodoModel = require("../models/todo.model");
 
 
-const getTodos = (req, res) => {
-  res.json(TodoModel.getAll());
+// const getTodos = (req, res) => {
+//   res.json(TodoModel.getAll());
+// };
+
+const getTodos = async (req, res) => {
+  try {
+    const todos = await TodoModel.find();
+    res.status(200).json(todos);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch todos" });
+  }
 };
+
 
 const createTodo = (req, res) => {
   const { text } = req.body;
