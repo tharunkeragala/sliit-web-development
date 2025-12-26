@@ -30,7 +30,9 @@ function AddTodo() {
     <div>
       <h2>Add Todo Component</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Enter todo item" 
+        <input 
+        type="text" 
+        placeholder="Enter todo item" 
         onChange={(e) => handleInput(e)}
         />
         <button type="submit">Add Todo</button>
