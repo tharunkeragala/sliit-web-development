@@ -12,13 +12,18 @@ function ShowTodos() {
       },
     })
       .then((res) => res.json())
-      .then((data) => /*console.log("data", data)*/ setTodos(data))
-      .catch((error) => console.error("Error fetching todos:", error));
-  }, []);
+      .then((data) => setTodos(data))
+      .catch((error) => console.error("Error fetching todos:", error)); // Fixed error name here
+  }, []); // Add empty array to run only once when component mounts
 
   return (
     <div>
-      <ShowTodos />
+      <h2>Todo List</h2>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>{todo.text}</li> // Corrected tag here
+        ))}
+      </ul>
     </div>
   );
 }
